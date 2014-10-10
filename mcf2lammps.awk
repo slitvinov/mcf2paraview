@@ -1,10 +1,20 @@
 BEGIN {
+    # decode MCF types to lammps types (0->1, -5->2, [...])
     type_decode[0]=1
     type_decode[-5]=2
     type_decode[-6]=2
     type_decode[1]=3
     type_decode[2]=4
 
+    # dummy variable for ENSIGHT
+    minx=0
+    maxx=1
+
+    miny=0
+    maxy=1
+
+    minz=0
+    maxz=1
 }
 
 pass==1 && NF {
@@ -19,13 +29,13 @@ pass==2 && !flag {
     flag = 1
 
     printf "ITEM: TIMESTEP\n"
-    printf "0\n"
+    printf "%i\n", time_var
     printf "ITEM: NUMBER OF ATOMS\n"
     printf "%i\n", natom
     printf "ITEM: BOX BOUNDS pp pp pp\n"
-    printf "0 10.75\n"
-    printf "0 10.75\n"
-    printf "-10.0 10.0\n"
+    printf "%-1.16e %-1.16e\n", minx, maxx
+    printf "%-1.16e %-1.16e\n", miny, maxy
+    printf "%-1.16e %-1.16e\n", minz, maxz
     printf "ITEM: ATOMS id type x y z vx vy vz c_rho_peratom\n"
 }
 
@@ -41,4 +51,3 @@ pass==2 && flag && NF {
     printf "%i %i %g %g %g %g %g %g %g\n", id, type, x, y, z, vx, vy, vz, c_rho_peratom
     # print int($9)
 }
-
