@@ -1,14 +1,30 @@
 A converter of MCF output files to paraview.
 
 * Installation
+Install python-numpy on debian-based system
 #+BEGIN_EXAMPLE
-sudo apt-get install \
-   python-numpy python-numpy-doc python-pexpect python-tk \
-   python-pmw python-opengl python-imaging-tk libtogl-dev libreadline-dev
+sudo apt-get install python-numpy
 #+END_EXAMPLE
 
-#+BEGIN_SRC emacs-lisp
+Clone Pizza and mcf2paraview
+#+BEGIN_EXAMPLE
 git clone https://github.com/slitvinov/Pizza.py
 git clone https://github.com/slitvinov/mcf2paraview.git
-#+END_SRC
+#+END_EXAMPLE
+
+* Example
+
+There are sample data in [[file:data/]]
+#+BEGIN_EXAMPLE
+cd mcf2paraview
+bash post.sh
+#+END_EXAMPLE
+
+Open Ensight file in paraview
+#+BEGIN_EXAMPLE
+paraview data/lmp_dump.00000000.out.case
+#+END_EXAMPLE
+
+#+NAME: fig:snap
+[[./img/snap.png]]
 
