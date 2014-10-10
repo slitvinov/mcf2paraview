@@ -1,1 +1,10 @@
-mcf2ensight
+A converter of MCF output files to paraview.
+
+* Installation
+#+BEGIN_EXAMPLE
+sudo apt-get install \
+   python-numpy python-numpy-doc python-pexpect python-tk \
+   python-pmw python-opengl python-imaging-tk libtogl-dev libreadline-dev
+#+END_EXAMPLE
+
+git clone https://github.com/slitvinov/Pizza.py
