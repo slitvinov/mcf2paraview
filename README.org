@@ -1,4 +1,4 @@
-A converter of MCF output files to paraview.
+A converter of [[https://github.com/bianx/MCF][MCF]] output files to [[www.paraview.org][paraview]].
 
 * Installation
 Install python-numpy on debian-based system
