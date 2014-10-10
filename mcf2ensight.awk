@@ -46,6 +46,18 @@ pass==2 && flag && NF {
     # print int($9)
 }
 
+function generate_xyz_header() {
+    printf "BEGIN TIME STEP\n" > fbase ".xyz"
+    printf "Particle geometry\n" >> fbase ".xyz"
+    printf "for a collection of atoms\n" >> fbase ".xyz"
+    printf "node id given\n" >> fbase ".xyz"
+    printf "element id off\n" >> fbase ".xyz"
+    printf "extents\n" >> fbase ".xyz"
+    printf " 0.00000e+00 1.07500e+01\n" >> fbase ".xyz"
+    printf " 0.00000e+00 1.07500e+01\n" >> fbase ".xyz"
+    printf "-1.00000e+01 1.00000e+01\n" >> fbase ".xyz"
+}
+
 function generate_case(                i) {
     printf "# Ensight case file\n" > fbase ".case"
     printf "\n"  >> fbase ".case"
@@ -74,6 +86,7 @@ function generate_case(                i) {
 }
 
 END {
+    generate_xyz_header()
     generate_case()
 }
 
